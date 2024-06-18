@@ -164,9 +164,9 @@ class ElementTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('HD1', $doc->getElementAttribute($element, 'text:style-name'));
         self::assertEquals('1', $doc->getElementAttribute($element, 'text:outline-level'));
         $span = "$element/text:span";
-        self::assertTrue($doc->elementExists($span));
-        self::assertEquals('Heading 1', $doc->getElement($span)->textContent);
-        self::assertEquals('Heading_1', $doc->getElementAttribute($span, 'text:style-name'));
+        $this->assertTrue($doc->elementExists($span));
+        $this->assertEquals('Heading 1', $doc->getElement($span)->textContent);
+        $this->assertEquals('Heading1', $doc->getElementAttribute($span, 'text:style-name'));
 
         $doc->setDefaultFile('styles.xml');
         $element = '/office:document-styles/office:styles/style:style[1]';
@@ -180,8 +180,8 @@ class ElementTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('', $doc->getElementAttribute($element, 'fo:color'));
 
         $element = '/office:document-styles/office:styles/style:style[2]';
-        self::assertTrue($doc->elementExists($element));
-        self::assertEquals('Heading_1', $doc->getElementAttribute($element, 'style:name'));
+        $this->assertTrue($doc->elementExists($element));
+        $this->assertEquals('Heading1', $doc->getElementAttribute($element, 'style:name'));
         $element .= '/style:text-properties';
         self::assertTrue($doc->elementExists($element));
         self::assertEquals('20pt', $doc->getElementAttribute($element, 'fo:font-size'));
@@ -214,8 +214,8 @@ class ElementTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('HE1', $doc->getElementAttribute($element, 'text:style-name'));
         self::assertEquals('1', $doc->getElementAttribute($element, 'text:outline-level'));
         $span = "$element/text:span";
-        self::assertEquals('Text Title', $doc->getElement($span)->textContent);
-        self::assertEquals('Heading_1', $doc->getElementAttribute($span, 'text:style-name'));
+        $this->assertEquals('Text Title', $doc->getElement($span)->textContent);
+        $this->assertEquals('Heading1', $doc->getElementAttribute($span, 'text:style-name'));
         $element = "$p2t/text:p[2]/text:span";
         self::assertEquals('Text following Text Title', $doc->getElement($element)->nodeValue);
 
@@ -223,10 +223,10 @@ class ElementTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('HD1', $doc->getElementAttribute($element, 'text:style-name'));
         self::assertEquals('1', $doc->getElementAttribute($element, 'text:outline-level'));
         $span = "$element/text:span";
-        self::assertEquals('Text Run', $doc->getElement("$span/text:span[1]")->textContent);
-        self::assertTrue($doc->elementExists("$span/text:span[2]/text:s"));
-        self::assertEquals('Title', $doc->getElement("$span/text:span[2]")->textContent);
-        self::assertEquals('Heading_1', $doc->getElementAttribute($span, 'text:style-name'));
+        $this->assertEquals('Text Run', $doc->getElement("$span/text:span[1]")->textContent);
+        $this->assertTrue($doc->elementExists("$span/text:span[2]/text:s"));
+        $this->assertEquals('Title', $doc->getElement("$span/text:span[2]")->textContent);
+        $this->assertEquals('Heading1', $doc->getElementAttribute($span, 'text:style-name'));
         $element = "$p2t/text:p[3]/text:span";
         self::assertEquals('Text following Text Run Title', $doc->getElement($element)->nodeValue);
     }

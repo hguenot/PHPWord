@@ -72,7 +72,7 @@ class Paragraph extends AbstractStyle
                 $pagestart = $psn;
             } elseif (substr($styleName, 0, 2) === 'HD') {
                 $styleAuto = true;
-                $psm = 'Heading_' . substr($styleName, 2);
+                $psm = 'Heading' . substr($styleName, 2);
                 $stylep = \PhpOffice\PhpWord\Style::getStyle($psm);
                 if ($stylep instanceof \PhpOffice\PhpWord\Style\Font) {
                     if (method_exists($stylep, 'getParagraph')) {
@@ -86,7 +86,7 @@ class Paragraph extends AbstractStyle
                 }
             } elseif (substr($styleName, 0, 2) === 'HE') {
                 $styleAuto = true;
-                $psm = 'Heading_' . substr($styleName, 2);
+                $psm = 'Heading' . substr($styleName, 2);
                 $breakauto = true;
             } else {
                 $styleAuto = true;

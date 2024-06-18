@@ -65,11 +65,11 @@ class StyleTest extends \PHPUnit\Framework\TestCase
 
         $styles = [
             'Paragraph' => 'Paragraph',
-            'Font' => 'Font',
-            'Link' => 'Font',
-            'Table' => 'Table',
-            'Heading_1' => 'Font',
-            'Normal' => 'Paragraph',
+            'Font'      => 'Font',
+            'Link'      => 'Font',
+            'Table'     => 'Table',
+            'Heading1'  => 'Font',
+            'Normal'    => 'Paragraph',
             'Numbering' => 'Numbering',
         ];
 

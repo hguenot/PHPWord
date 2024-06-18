@@ -202,7 +202,7 @@ class Content extends AbstractPart
 
         foreach ($styles as $style) {
             $sty = (string) $style->getStyleName();
-            if (substr($sty, 0, 8) === 'Heading_') {
+            if (substr($sty, 0, 7) === 'Heading') {
                 $style = new Paragraph();
                 $style->setStyleName('HD' . substr($sty, 8));
                 $style->setAuto();
